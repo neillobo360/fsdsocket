@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Event Chat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="chat-container" id="chat-container">
+    <div class="header">
+      <h1>Live Event Chat</h1>
+    </div>
+
+    <div id="messages" class="messages">
+      <!-- Chat messages will appear here -->
+    </div>
+
+    <div class="message-input">
+      <input type="text" id="message" placeholder="Type a message" />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- File upload buttons -->
+    <div class="file-buttons">
+      <label for="file-upload-doc">
+        <button title="Upload Document">📄</button>
+        <input type="file" id="file-upload-doc" accept=".pdf, .docx, .txt, .rtf" onchange="uploadFile('document')">
+      </label>
+
+      <label for="file-upload-img">
+        <button title="Upload Image">📷</button>
+        <input type="file" id="file-upload-img" accept="image/*" onchange="uploadFile('image')">
+      </label>
+
+      <label for="file-upload-video">
+        <button title="Upload Video">🎥</button>
+        <input type="file" id="file-upload-video" accept="video/*" onchange="uploadFile('video')">
+      </label>
+    </div>
+  </div>
+
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
